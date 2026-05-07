@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MR Têxtil — Malhas e Tecidos de Alta Qualidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:    #F5F0E8;
+      --cream:   #FDFAF5;
+      --espresso:#1C1512;
+      --clay:    #8B6F5E;
+      --terrac:  #C4785A;
+      --sage:    #7A8C7E;
+      --line:    #E8E0D4;
+      --text:    #3A3028;
+      --muted:   #7C6F65;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(253,250,245,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--espresso);
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--terrac); }
+    .nav-badge {
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 40px; }
+
+    .container { max-width: 980px; margin: 0 auto; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(160deg, var(--espresso) 0%, #2E1F17 100%);
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 20%, rgba(196,120,90,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(122,140,126,.12) 0%, transparent 60%);
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 980px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .75rem; font-weight: 600;
+      color: var(--terrac);
+      letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 32px; height: 1px;
+      background: var(--terrac);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--terrac);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,.62);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+    .hero-stats {
+      display: flex; gap: 48px;
+      flex-wrap: wrap;
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+    .stat-num span { color: var(--terrac); }
+    .stat-label {
+      font-size: .8rem;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px; right: 0;
+      display: flex; align-items: center; gap: 10px;
+      font-size: .75rem;
+      color: rgba(255,255,255,.3);
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block; width: 48px; height: 1px;
+      background: rgba(255,255,255,.2);
+    }
+
+    /* ── INTRO STRIP ── */
+    .strip {
+      background: var(--terrac);
+      padding: 0 40px;
+    }
+    .strip-inner {
+      max-width: 980px; margin: 0 auto;
+      display: flex; align-items: center; gap: 20px;
+      padding: 28px 0;
+    }
+    .strip-icon { font-size: 1.4rem; }
+    .strip-text {
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: .72rem; font-weight: 600;
+      color: var(--terrac);
+      letter-spacing: .14em; text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: block; width: 24px; height: 1px;
+      background: var(--terrac);
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      font-weight: 700;
+      color: var(--espresso);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin-bottom: 20px;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--sand); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-text {}
+    .pillars {
+      display: flex; flex-direction: column; gap: 20px;
+      margin-top: 40px;
+    }
+    .pillar {
+      display: flex; gap: 16px;
+      align-items: flex-start;
+    }
+    .pillar-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--cream);
+      border-radius: 10px;
+      font-size: 1.1rem;
+      border: 1px solid var(--line);
+    }
+    .pillar-copy h4 {
+      font-size: .9rem; font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 3px;
+    }
+    .pillar-copy p {
+      font-size: .84rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .visual-card {
+      background: var(--espresso);
+      border-radius: 20px;
+      padding: 48px 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .visual-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(196,120,90,.15);
+    }
+    .visual-card::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -20px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(122,140,126,.1);
+    }
+    .vc-label {
+      font-size: .7rem; font-weight: 600;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .vc-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--terrac);
+      line-height: 1;
+    }
+    .vc-desc {
+      font-size: .95rem;
+      color: rgba(255,255,255,.65);
+      margin-top: 8px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .vc-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      position: relative; z-index: 1;
+    }
+    .vc-tag {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.7);
+    }
+
+    /* ── PROCESS ── */
+    .process { background: var(--cream); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .step {
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      top: 20px; right: -18px;
+      color: var(--line);
+      font-size: 1.2rem;
+    }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--line);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step h4 {
+      font-size: .9rem; font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── PRODUCTS ── */
+    .products { background: var(--sand); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .product-card {
+      background: var(--cream);
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: 36px 28px;
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: default;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(28,21,18,.1);
+    }
+    .product-swatch {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+    .swatch-canelada { background: linear-gradient(135deg, #C9B8A8, #A08070); }
+    .swatch-moletinho { background: linear-gradient(135deg, #8FA3B1, #5A7A8C); }
+    .swatch-viscose   { background: linear-gradient(135deg, #D4A373, #B87333); }
+
+    .product-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 10px;
+    }
+    .product-card p {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .product-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: .7rem; font-weight: 500;
+      color: var(--clay);
+      background: rgba(139,111,94,.1);
+      border-radius: 100px;
+      padding: 4px 10px;
+      letter-spacing: .03em;
+    }
+
+    /* ── CONDITIONS ── */
+    .conditions { background: var(--espresso); }
+    .conditions .section-label { color: var(--terrac); }
+    .conditions .section-label::before { background: var(--terrac); }
+    .conditions h2 { color: #fff; }
+    .conditions .lead { color: rgba(255,255,255,.5); }
+    .cond-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .cond-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+    .cond-card.highlight {
+      background: rgba(196,120,90,.12);
+      border-color: rgba(196,120,90,.3);
+    }
+    .cond-icon { font-size: 1.6rem; margin-bottom: 16px; }
+    .cond-card h4 {
+      font-size: .95rem; font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .cond-card p {
+      font-size: .85rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.65;
+    }
+    .cond-card.highlight p { color: rgba(255,255,255,.65); }
+
+    /* ── LOCATION ── */
+    .location { background: var(--cream); }
+    .loc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .loc-map {
+      background: var(--sand);
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      padding: 48px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 320px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .loc-map::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(196,120,90,.06) 0%, transparent 70%);
+    }
+    .loc-pin { font-size: 3rem; margin-bottom: 16px; }
+    .loc-neighborhood {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--espresso);
+      margin-bottom: 6px;
+    }
+    .loc-city {
+      font-size: .85rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .loc-badge {
+      margin-top: 20px;
+      background: var(--espresso);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 500;
+    }
+    .loc-info {}
+    .info-item {
+      display: flex; gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-ico {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--sand);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      border: 1px solid var(--line);
+    }
+    .info-text h5 {
+      font-size: .85rem; font-weight: 600;
+      color: var(--espresso);
+      margin-bottom: 2px;
+    }
+    .info-text p {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(160deg, var(--terrac) 0%, #A0543A 100%);
+      padding: 112px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 70% at 0% 0%, rgba(255,255,255,.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 100% 100%, rgba(0,0,0,.15) 0%, transparent 60%);
+    }
+    .cta-inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-eyebrow {
+      font-size: .72rem; font-weight: 600;
+      color: rgba(255,255,255,.6);
+      letter-spacing: .14em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 20px;
+    }
+    .cta-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.72);
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--espresso);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      padding: 18px 40px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: -.01em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 8px 32px rgba(28,21,18,.3);
+      text-decoration: none;
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(28,21,18,.4);
+      background: #2E1F17;
+    }
+    .btn-arrow {
+      display: flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--terrac);
+      border-radius: 50%;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .cta-note {
+      margin-top: 20px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--espresso);
+      padding: 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .footer-logo span { color: var(--terrac); }
+    .footer-copy {
+      font-size: .78rem;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-tagline {
+      font-size: .78rem;
+      color: rgba(255,255,255,.3);
+      text-align: right;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      section { padding: 72px 24px; }
+      nav { padding: 16px 24px; }
+      .nav-badge { display: none; }
+      .about-grid,
+      .loc-grid,
+      .cond-grid { grid-template-columns: 1fr; gap: 40px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after { display: none; }
+      .hero-stats { gap: 32px; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .footer-tagline { text-align: left; }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">MR <span>Têxtil</span></div>
+    <span class="nav-badge">Atacado · São Paulo</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Malhas &amp; Tecidos de Alta Qualidade</div>
+      <h1>O tecido certo<br/>para <em>cada</em> coleção</h1>
+      <p class="hero-sub">
+        Fornecemos malhas e tecidos para confecções e empresas do Estado de São Paulo com qualidade comprovada, atendimento especializado e mais de uma década de experiência no setor têxtil.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-label">Anos de mercado</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Linhas de produto</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">SP</div>
+          <div class="stat-label">Atendimento</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span class="strip-icon">🏷️</span>
+      <p class="strip-text">
+        <strong>Preços especiais para CNPJ cadastrado</strong> — venda exclusiva para pessoas jurídicas. Cadastre sua empresa e acesse condições diferenciadas.
+      </p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-label">Sobre nós</div>
+          <h2>Expertise têxtil desde o fio até a entrega</h2>
+          <p class="lead">
+            A MR Têxtil nasceu com o propósito de oferecer materiais de alto padrão para quem produz moda com seriedade. Controlamos todo o ciclo — da produção ao corte — garantindo consistência em cada lote.
+          </p>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="pillar-icon">🧵</div>
+              <div class="pillar-copy">
+                <h4>Produção própria</h4>
+                <p>Gerenciamos o processo produtivo de ponta a ponta, assegurando rastreabilidade e padrão de qualidade.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">✂️</div>
+              <div class="pillar-copy">
+                <h4>Corte especializado</h4>
+                <p>Oferecemos serviço de corte para facilitar sua operação e reduzir desperdício na sua linha de produção.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🤝</div>
+              <div class="pillar-copy">
+                <h4>Atendimento consultivo</h4>
+                <p>Nossa equipe conhece profundamente cada produto e ajuda você a escolher o tecido ideal para cada aplicação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="visual-card">
+            <div class="vc-label">Nossa trajetória</div>
+            <div class="vc-number">+10</div>
+            <p class="vc-desc">
+              Anos fornecendo para confecções, ateliês e marcas do Estado de São Paulo com reputação construída na qualidade e na confiança.
+            </p>
+            <div class="vc-tags">
+              <span class="vc-tag">Malhas</span>
+              <span class="vc-tag">Tecidos</span>
+              <span class="vc-tag">Corte</span>
+              <span class="vc-tag">Atacado</span>
+              <span class="vc-tag">São Paulo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="container">
+      <div class="section-label">Como funciona</div>
+      <h2>Do primeiro contato ao<br/>material na sua mão</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Cadastro do CNPJ</h4>
+          <p>Realize o cadastro da sua empresa e tenha acesso às condições exclusivas de atacado.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>Escolha dos produtos</h4>
+          <p>Conheça nosso portfólio e selecione os tecidos e malhas que atendem sua coleção.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>Atendimento e corte</h4>
+          <p>Nossa equipe orienta na escolha e, se necessário, realiza o corte sob medida.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h4>Retirada na loja</h4>
+          <p>Retire pessoalmente em nossa loja física no Morumbi com toda a segurança e praticidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+    <div class="container">
+      <div class="section-label">Portfólio</div>
+      <h2>Produtos selecionados para<br/>quem produz com qualidade</h2>
+      <p class="lead">Três linhas de destaque para atender diferentes aplicações e estilos, todas com qualidade e consistência de fornecimento.</p>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-swatch swatch-canelada"></div>
+          <h3>Malha Canelada</h3>
+          <p>
+            Tecido com textura em relevo formada por colunas paralelas. Altamente elástica, confortável e versátil — ideal para peças justas, básicos e moda fitness.
+          </p>
+          <div class="product-tags">
+            <span class="tag">Alta elasticidade</span>
+            <span class="tag">Conforto</span>
+            <span class="tag">Moda casual</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-swatch swatch-moletinho"></div>
+          <h3>Moletinho</h3>
+          <p>
+            Tecido leve, macio e de toque agradável. Perfeito para moletons, loungewear e peças infantis — referência em conforto e acabamento limpo.
+          </p>
+          <div class="product-tags">
+            <span class="tag">Toque macio</span>
+            <span class="tag">Loungewear</span>
+            <span class="tag">Moda infantil</span>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-swatch swatch-viscose"></div>
+          <h3>Viscose Estampada</h3>
+          <p>
+            Tecido leve e com excelente caimento, disponível em estampas exclusivas. Muito utilizado em camisas, vestidos e peças fluidas de moda feminina.
+          </p>
+          <div class="product-tags">
+            <span class="tag">Caimento fluido</span>
+            <span class="tag">Estampas exclusivas</span>
+            <span class="tag">Moda feminina</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONDITIONS -->
+  <section class="conditions">
+    <div class="container">
+      <div class="section-label">Condições Comerciais</div>
+      <h2>Feito para quem<br/>produz em escala</h2>
+      <p class="lead">Trabalhamos com venda exclusiva em atacado, garantindo volume, preços competitivos e relação de longo prazo com nossos parceiros.</p>
+      <div class="cond-grid">
+        <div class="cond-card highlight">
+          <div class="cond-icon">🏷️</div>
+          <h4>Preços especiais para CNPJ cadastrado</h4>
+          <p>Empresas com cadastro ativo em nosso sistema têm acesso a tabelas de preços diferenciadas e condições exclusivas para pedidos recorrentes.</p>
+        </div>
+        <div class="cond-card">
+          <div class="cond-icon">📦</div>
+          <h4>Somente atacado</h4>
+          <p>Atendemos exclusivamente pessoas jurídicas com pedidos em volume. Modelo ideal para confecções, marcas próprias e distribuidores.</p>
+        </div>
+        <div class="cond-card">
+          <div class="cond-icon">🗺️</div>
+          <h4>Atendimento em São Paulo</h4>
+          <p>Operamos com foco no Estado de São Paulo, garantindo agilidade na comunicação e proximidade com o cliente.</p>
+        </div>
+        <div class="cond-card">
+          <div class="cond-icon">🏪</div>
+          <h4>Loja física no Morumbi</h4>
+          <p>Visite nossa loja, conheça os produtos de perto, tire suas dúvidas com a equipe e faça sua retirada com praticidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location">
+    <div class="container">
+      <div class="loc-grid">
+        <div class="loc-map">
+          <div class="loc-pin">📍</div>
+          <div class="loc-neighborhood">Morumbi</div>
+          <div class="loc-city">São Paulo · SP</div>
+          <div class="loc-badge">Loja física</div>
+        </div>
+        <div class="loc-info">
+          <div class="section-label">Nossa loja</div>
+          <h2>Venha nos visitar</h2>
+          <p class="lead" style="margin-bottom: 0;">Um espaço pensado para o comprador profissional: catálogo completo, amostras disponíveis e atendimento especializado.</p>
+          <div class="info-item">
+            <div class="info-ico">📍</div>
+            <div class="info-text">
+              <h5>Localização</h5>
+              <p>Bairro Morumbi, São Paulo — SP</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-ico">🏢</div>
+            <div class="info-text">
+              <h5>Tipo de atendimento</h5>
+              <p>Exclusivo para CNPJ — venda em atacado</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-ico">✂️</div>
+            <div class="info-text">
+              <h5>Serviços disponíveis</h5>
+              <p>Venda de malhas, tecidos e serviço de corte</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-eyebrow">Próximo passo</div>
+      <h2>Pronto para elevar sua produção?</h2>
+      <p class="cta-sub">
+        Cadastre sua empresa e garanta acesso às melhores malhas e tecidos do mercado paulista com condições exclusivas para atacado.
+      </p>
+      <a href="#" class="btn-cta" onclick="return false;">
+        Reservar Malhas e Tecidos
+        <span class="btn-arrow">→</span>
+      </a>
+      <p class="cta-note">Venda exclusiva para CNPJ · Atendimento no Morumbi, São Paulo</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">MR <span>Têxtil</span></div>
+    <div class="footer-copy">© 2024 MR Têxtil · Todos os direitos reservados</div>
+    <div class="footer-tagline">Mais de 10 anos no setor têxtil</div>
+  </footer>
+
+</body>
+</html>
